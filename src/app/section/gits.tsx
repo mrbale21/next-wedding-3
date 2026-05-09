@@ -52,10 +52,10 @@ const Gift = () => {
             className="bg-neutral border border-primary rounded-xl shadow shadow-primary/30 flex flex-col items-center p-6 relative"
           >
             <Image
-              src="/assets/images/bca.png"
+              src="/assets/images/shinhan.png"
               alt="Mandiri"
-              width={70}
-              height={40}
+              width={120}
+              height={100}
               className="mb-3"
             />
             <div className="w-2/3 h-[1px] bg-neutral-400 mb-3" />
