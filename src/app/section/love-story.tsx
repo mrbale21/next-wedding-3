@@ -4,19 +4,19 @@ import { motion } from "framer-motion";
 
 const stories = [
   {
-    title: "Awwal Bertemu",
+    title: "Awal Pertemuan",
     description:
-      "Kami pertama kali bertemu di gunung pangrango ketika mendaki bersama. Tanpa disangka, percakapan kecil saat itu menjadi awal dari cerita panjang yang indah.",
+      "Berawal dari saling sapa dan mengenal satu sama lain. Karena perjalanan pulang kerja yang searah, kami sering berbagi cerita dan canda di sepanjang jalan. Dari perjalanan sederhana itu, tumbuh kenyamanan yang menghadirkan kisah indah bagi kami berdua.",
   },
   {
     title: "Perjalanan Bersama",
     description:
-      "Dari jalan-jalan sore hingga merancang masa depan, semua momen terasa lebih berarti saat dilalui bersama.",
+      "Di setiap hari libur, kami meluangkan waktu untuk berjalan bersama, menikmati makanan favorit, dan berbincang tentang masa depan. Dari setiap pertemuan, hadir banyak momen hangat yang semakin menguatkan hubungan kami.",
   },
   {
     title: "Komitmen",
     description:
-      "Cinta kami tumbuh perlahan, tapi pasti. Kini, kami yakin untuk melangkah ke tahap selanjutnya bersama.",
+      "Cinta kami tumbuh perlahan namun penuh keyakinan. Setelah melewati banyak cerita bersama, kami memutuskan untuk melangkah ke tahap yang lebih indah, mengikat janji suci dan menjalani masa depan bersama.",
   },
 ];
 

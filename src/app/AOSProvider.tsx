@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import "aos/dist/aos.css";
 
 export default function AOSProvider({
   children,
@@ -8,11 +9,24 @@ export default function AOSProvider({
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      import("aos").then((AOS) => {
-        AOS.init({ duration: 800, once: true });
-      });
-    }
+    let mounted = true;
+
+    const initAOS = async () => {
+      const AOS = (await import("aos")).default;
+
+      if (mounted) {
+        AOS.init({
+          duration: 800,
+          once: true,
+        });
+      }
+    };
+
+    initAOS();
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   return <>{children}</>;

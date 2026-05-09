@@ -17,8 +17,10 @@ export default function SectionPage() {
 
   useEffect(() => {
     if (isUnlocked && audioRef.current) {
-      audioRef.current.play().catch(() => console.log("Autoplay failed"));
-      setIsPlaying(true);
+      audioRef.current
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => console.log("Autoplay failed"));
     }
   }, [isUnlocked]);
 
@@ -37,7 +39,6 @@ export default function SectionPage() {
     <div className="w-full bg-secondary text-gray-800 overflow-hidden">
       <audio ref={audioRef} src="/assets/music/music.mp3" loop />
 
-      {/* SectionClient yang aman memanggil useSearchParams() */}
       <Suspense fallback={<div>Loading...</div>}>
         <SectionClient onOpen={() => setIsUnlocked(true)} />
       </Suspense>

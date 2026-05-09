@@ -53,7 +53,7 @@ const generateAvatarClass = (name: string) => {
     "bg-red-500",
   ];
   const index = name.length % colors.length;
-  return `${colors[index]} text-white font-semibold flex items-center justify-center rounded-full w-12 h-12 text-lg`;
+  return `${colors[index]} text-white font-semibold flex items-center justify-center rounded-full w-10 h-10 md:w-12 md:h-12 text-base md:text-lg flex-shrink-0`;
 };
 
 const CommentSection: React.FC = () => {
@@ -72,7 +72,7 @@ const CommentSection: React.FC = () => {
   const startIndex = (currentPage - 1) * commentsPerPage;
   const currentComments = comments.slice(
     startIndex,
-    startIndex + commentsPerPage
+    startIndex + commentsPerPage,
   );
 
   // Firebase: load comments realtime
@@ -108,7 +108,7 @@ const CommentSection: React.FC = () => {
 
   // Attendance modal selection
   const handleAttendanceSelection = async (
-    attendance: "hadir" | "tidak-hadir"
+    attendance: "hadir" | "tidak-hadir",
   ) => {
     if (!tempComment) return;
     setIsSubmitting(true);
@@ -135,22 +135,22 @@ const CommentSection: React.FC = () => {
   };
 
   const attendingCount = comments.filter(
-    (c) => c.attendance === "hadir"
+    (c) => c.attendance === "hadir",
   ).length;
   const notAttendingCount = comments.filter(
-    (c) => c.attendance === "tidak-hadir"
+    (c) => c.attendance === "tidak-hadir",
   ).length;
 
   return (
-    <div className="px-4 pb-16">
-      <div className="max-w-4xl mx-auto p-6 bg-gradient-to-br from-primary to-primary rounded-2xl min-h-screen">
+    <div className="px-3 sm:px-4 pb-16 md:pb-20">
+      <div className="max-w-4xl mx-auto p-3 sm:p-4 md:p-6 bg-gradient-to-br from-primary to-primary rounded-2xl min-h-screen">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
             <h2
               data-aos="fade-left"
               data-aos-delay={10}
-              className="text-4xl font-bold text-white font-Sacramneto my-10"
+              className="text-3xl sm:text-4xl font-bold text-white font-Sacramneto my-6 sm:my-10"
             >
               Ucapan & Doa
             </h2>
@@ -160,10 +160,10 @@ const CommentSection: React.FC = () => {
           <div
             data-aos="fade-up"
             data-aos-delay={10}
-            className="flex justify-center gap-6 mb-6 flex-wrap"
+            className="flex justify-center gap-3 sm:gap-6 mb-6 flex-wrap"
           >
-            <div className="flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full">
-              <span className="text-green-700 font-semibold">
+            <div className="flex items-center gap-2 bg-green-100 px-3 sm:px-4 py-2 rounded-full">
+              <span className="text-green-700 font-semibold text-sm sm:text-base">
                 {attendingCount + notAttendingCount} Ucapan
               </span>
             </div>
@@ -174,9 +174,9 @@ const CommentSection: React.FC = () => {
         <div
           data-aos="fade-up"
           data-aos-delay={10}
-          className="bg-white rounded-2xl shadow-lg p-6 mb-8 border border-gray-100"
+          className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-6 sm:mb-8 border border-gray-100"
         >
-          <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
             <Users className="w-5 h-5 text-blue-600" />
             Berikan Ucapan Anda
           </h3>
@@ -188,7 +188,7 @@ const CommentSection: React.FC = () => {
               onChange={(e) =>
                 setNewComment({ ...newComment, name: e.target.value })
               }
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base"
               required
             />
             <textarea
@@ -198,14 +198,14 @@ const CommentSection: React.FC = () => {
                 setNewComment({ ...newComment, message: e.target.value })
               }
               rows={4}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+              className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none text-sm sm:text-base"
               required
             />
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-primary to-neutral text-white py-3 px-6 rounded-lg hover:from-neutral hover:to-primary transition-all duration-300 flex items-center justify-center gap-2 font-semibold"
+              className="w-full bg-gradient-to-r from-primary to-neutral text-white py-2.5 sm:py-3 px-6 rounded-lg hover:from-neutral hover:to-primary transition-all duration-300 flex items-center justify-center gap-2 font-semibold text-sm sm:text-base"
             >
-              <Send className="w-5 h-5" /> Kirim Ucapan
+              <Send className="w-4 h-4 sm:w-5 sm:h-5" /> Kirim Ucapan
             </button>
           </form>
         </div>
@@ -215,34 +215,38 @@ const CommentSection: React.FC = () => {
           {currentComments.map((comment) => (
             <div
               key={comment.id}
-              className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 border border-gray-100 hover:shadow-xl transition-all duration-300"
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 sm:gap-4">
                 <div className={generateAvatarClass(comment.name)}>
                   {comment.name.charAt(0).toUpperCase()}
                 </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2 flex-wrap">
-                    <h4 className="font-semibold text-gray-800 text-lg">
+                <div className="flex-1 min-w-0">
+                  <div className="flex  sm:items-center gap-2 sm:gap-3 mb-2">
+                    <h4 className="font-semibold text-gray-800 text-base sm:text-lg break-words">
                       {comment.name}
                     </h4>
                     <div className="flex items-center gap-2">
                       {comment.attendance === "hadir" ? (
-                        <div className="flex items-center gap-1 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
-                          <Check className="w-4 h-4" />
+                        <div className="flex items-center gap-1 bg-green-100 text-green-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+                          <Check className="w-3 h-3 sm:w-4 sm:h-4" />
+                          <span className="hidden sm:inline ml-1">Hadir</span>
                         </div>
                       ) : (
-                        <div className="flex items-center gap-1 bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium">
-                          <X className="w-4 h-4" />
+                        <div className="flex items-center gap-1 bg-red-100 text-red-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+                          <X className="w-3 h-3 sm:w-4 sm:h-4" />
+                          <span className="hidden sm:inline ml-1">
+                            Tidak Hadir
+                          </span>
                         </div>
                       )}
                     </div>
                   </div>
-                  <p className="text-gray-700 leading-relaxed mb-3 text-sm">
+                  <p className="text-gray-700 leading-relaxed mb-3 text-sm sm:text-base break-words">
                     {comment.message}
                   </p>
-                  <div className="flex items-center gap-2 text-gray-500 text-sm">
-                    <Calendar className="w-4 h-4" />
+                  <div className="flex items-center gap-2 text-gray-500 text-xs sm:text-sm">
+                    <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                     {formatDate(comment.date)}
                   </div>
                 </div>
@@ -253,31 +257,33 @@ const CommentSection: React.FC = () => {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-4">
+          <div className="flex justify-center items-center gap-2 sm:gap-4">
             <button
               data-aos="fade-left"
               data-aos-delay={10}
               onClick={handlePrevPage}
               disabled={currentPage === 1}
-              className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-white rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all text-sm sm:text-base"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="hidden sm:inline">Sebelumnya</span>
             </button>
             <span
               data-aos="fade-up"
               data-aos-delay={10}
-              className="px-4 py-2 bg-neutral text-white rounded-lg font-semibold"
+              className="px-3 sm:px-4 py-2 bg-neutral text-white rounded-lg font-semibold text-sm sm:text-base"
             >
-              {currentPage} dari {totalPages}
+              {currentPage} / {totalPages}
             </span>
             <button
               data-aos="fade-right"
               data-aos-delay={10}
               onClick={handleNextPage}
               disabled={currentPage === totalPages}
-              className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-white rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all text-sm sm:text-base"
             >
-              <ChevronRight className="w-5 h-5" />
+              <span className="hidden sm:inline">Selanjutnya</span>
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         )}
@@ -285,27 +291,29 @@ const CommentSection: React.FC = () => {
         {/* Attendance Modal */}
         {showAttendanceModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-2xl p-6 w-full max-w-md mx-4 transform transition-all">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 w-full max-w-md mx-4 transform transition-all">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 text-center">
                 Konfirmasi Kehadiran
               </h3>
-              <p className="text-gray-600 mb-6 text-center">
+              <p className="text-gray-600 mb-6 text-center text-sm sm:text-base">
                 Apakah Anda akan hadir dalam acara ini?
               </p>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <button
                   onClick={() => handleAttendanceSelection("hadir")}
                   disabled={isSubmitting}
-                  className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded-lg transition-all disabled:opacity-50"
+                  className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white py-2.5 sm:py-3 px-4 rounded-lg transition-all disabled:opacity-50 text-sm sm:text-base"
                 >
-                  <Check className="w-5 h-5" /> Ya, Hadir
+                  <Check className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Ya, Hadir</span>
                 </button>
                 <button
                   onClick={() => handleAttendanceSelection("tidak-hadir")}
                   disabled={isSubmitting}
-                  className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-lg transition-all disabled:opacity-50"
+                  className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white py-2.5 sm:py-3 px-4 rounded-lg transition-all disabled:opacity-50 text-sm sm:text-base"
                 >
-                  <X className="w-5 h-5" /> Tidak Hadir
+                  <X className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Tidak Hadir</span>
                 </button>
               </div>
             </div>

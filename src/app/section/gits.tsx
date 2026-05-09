@@ -8,8 +8,8 @@ const Gift = () => {
   const [copiedDana, setCopiedDana] = useState(false);
   const [copiedMandiri, setCopiedMandiri] = useState(false);
 
-  const rekeningBca = "5737161469";
-  const rekeningDana = "082261578396";
+  const rekeningBca = "115101043209508";
+  const rekeningDana = "085816385559";
 
   const handleCopy = (rekening: string, type: "dana" | "bca") => {
     navigator.clipboard.writeText(rekening).then(() => {
@@ -52,7 +52,7 @@ const Gift = () => {
             className="bg-neutral border border-primary rounded-xl shadow shadow-primary/30 flex flex-col items-center p-6 relative"
           >
             <Image
-              src="/assets/images/bca.png"
+              src="/assets/images/bri.png"
               alt="Mandiri"
               width={70}
               height={40}
@@ -60,7 +60,7 @@ const Gift = () => {
             />
             <div className="w-2/3 h-[1px] bg-neutral-400 mb-3" />
             <p className="font-cal-sans text-sm text-secondary">
-              a/n Abdul Waldi
+              a/n Resti Sundari
             </p>
             <p className="font-raleway text-base font-semibold text-white mt-4">
               {rekeningBca}
@@ -95,7 +95,7 @@ const Gift = () => {
             />
             <div className="w-2/3 h-[1px] bg-neutral-400 mb-3" />
             <p className="font-cal-sans text-sm text-secondary">
-              a/n Abdul Waldi
+              a/n Resti Sundari
             </p>
             <p className="font-raleway text-base font-semibold text-white/80 mt-4">
               {rekeningDana}

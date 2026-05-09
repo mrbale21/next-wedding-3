@@ -3,7 +3,7 @@ import "./globals.css";
 import AOSProvider from "./AOSProvider";
 
 export const metadata: Metadata = {
-  title: "Wedding-Komeng&Resti",
+  title: "Wedding-Resti&Komeng",
   icons: {
     icon: "data:,",
     shortcut: "data:,",

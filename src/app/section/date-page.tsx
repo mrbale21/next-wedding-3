@@ -12,7 +12,7 @@ export default function DatePage() {
       location: "Kediaman Mempelai Wanita",
       icon: "/assets/images/ring.png",
       bg: "/assets/images/image-4.webp",
-      href: "https://maps.app.goo.gl/pKS5VhPyGiw2fVZG7?g_st=ipc",
+      href: "https://maps.app.goo.gl/T5Nd8fVFs7gnUs158?g_st=ac",
     },
     {
       title: "Resepsi",
