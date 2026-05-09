@@ -57,7 +57,7 @@ export default function Gallery() {
   const prevImage = () => {
     if (currentIndex !== null) {
       setCurrentIndex(
-        (currentIndex - 1 + imagePhotos.length) % imagePhotos.length
+        (currentIndex - 1 + imagePhotos.length) % imagePhotos.length,
       );
     }
   };
@@ -110,7 +110,7 @@ export default function Gallery() {
           className="flex flex-col justify-between gap-1"
         >
           <GalleryImage
-            src="/assets/images/image-2.webp"
+            src="/assets/images/image-8.webp"
             alt="image"
             onClick={() => openPopup(1)}
           />
@@ -143,7 +143,7 @@ export default function Gallery() {
             data-aos-delay={10}
             className="text-center text-neutral font-Chalisa text-xl "
           >
-            Ebot & Nina
+            Komeng & Resti
           </p>
           <GalleryImage
             src="/assets/images/image-1.webp"
@@ -154,7 +154,7 @@ export default function Gallery() {
 
         <div data-aos="fade-up" data-aos-delay={10} className="col-span-2">
           <GalleryImage
-            src="/assets/images/image-5.webp"
+            src="/assets/images/image-2.webp"
             alt="image"
             onClick={() => openPopup(4)}
           />

@@ -55,7 +55,7 @@ export default function FirstPage({ triggerConfetti }: FirstPageProps) {
       <div
         id="firstPage"
         className="parallax relative flex flex-col justify-end items-center text-center h-[450px] md:h-[600px] lg:h-[700px] text-white overflow-hidden bg-cover bg-center z-10"
-        style={{ backgroundImage: "url('/assets/images/image-2.webp')" }}
+        style={{ backgroundImage: "url('/assets/images/image-1.webp')" }}
       >
         <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-b from-transparent to-primary"></div>
       </div>
@@ -73,9 +73,9 @@ export default function FirstPage({ triggerConfetti }: FirstPageProps) {
           data-aos-delay={30}
           className="text-6xl mb-4 font-Chalisa md:text-8xl"
         >
-          Ebot & Nina
+          Komeng & Resti
         </h2>
-        <SpecialDay targetDate="2025-09-20T00:00:00" />
+        <SpecialDay targetDate="2026-05-17T00:00:00" />
       </div>
 
       <Bride />

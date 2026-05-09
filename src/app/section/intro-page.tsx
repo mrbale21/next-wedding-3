@@ -71,7 +71,7 @@ export default function IntroPage({ onOpen, guestName }: IntroPageProps) {
       data-aos-delay={150}
       suppressHydrationWarning
       className="h-screen text-white flex flex-col justify-center pb-20 items-center text-center relative bg-cover bg-center"
-      style={{ backgroundImage: "url('/assets/images/image-4.webp')" }}
+      style={{ backgroundImage: "url('/assets/images/image-8.webp')" }}
     >
       <div className="absolute inset-0 bg-black/40 z-0" />
 
@@ -85,7 +85,7 @@ export default function IntroPage({ onOpen, guestName }: IntroPageProps) {
           Save The Date
         </motion.h1>
         <motion.h2 className="text-6xl mb-6 font-Chalisa md:text-5xl">
-          Ebot & Nina
+          Komeng & Resti
         </motion.h2>
         <motion.p className="font-Garamond text-smd mb-6 md:text-lg">
           Kepada Yth. Bapak/Ibu/Saudara/i

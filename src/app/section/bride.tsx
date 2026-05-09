@@ -45,7 +45,7 @@ const Bride: React.FC = () => {
             className="relative h-[230px] w-[200px] flex justify-start items-end rounded-tr-[70px] rounded-br-[70px] overflow-hidden z-30"
           >
             <img
-              src={"/assets/images/image-4.webp"}
+              src={"/assets/images/bride-boy.webp"}
               alt="Mempelai Pria"
               className="object-cover object-center h-[200px] w-[350px] bg-contain bg-top flex justify-start items-end rounded-tr-[70px] rounded-br-[70px]"
             />
@@ -56,15 +56,15 @@ const Bride: React.FC = () => {
               data-aos-delay={30}
               className="font-Chalisa font-semibold text-4xl text-neutral"
             >
-              Abdul Waldi
+              Komarudin (Komeng)
             </h1>
             <p
               data-aos="fade-right"
               data-aos-delay={40}
               className="text-start font-Prata text-black text-[12px]"
             >
-              Putra ke-tiga dari Bapak Kusmono & <br />
-              Ibu Julaeha
+              Putra dari Bapak H. Udin Jaenudin (Alm) & <br />
+              Ibu Hj. Siti Mariam (Alm)
             </p>
             <a
               href="https://www.instagram.com/ebotwaldi/"
@@ -88,7 +88,7 @@ const Bride: React.FC = () => {
             className="relative h-[230px] w-[200px] flex items-end rounded-tl-[70px] rounded-bl-[70px] overflow-hidden"
           >
             <img
-              src={"/assets/images/image-1.webp"}
+              src={"/assets/images/bride-girls.webp"}
               alt="Mempelai Wanita"
               className="object-cover object-center h-[200px] w-[350px] flex items-end rounded-tl-[70px] rounded-bl-[70px]"
             />
@@ -99,15 +99,15 @@ const Bride: React.FC = () => {
               data-aos-delay={30}
               className="font-Chalisa font-semibold text-4xl text-neutral"
             >
-              Nina Marlina
+              Resti Sundari
             </h1>
             <p
               data-aos="fade-left"
               data-aos-delay={35}
               className="text-end font-Prata text-[12px] text-black"
             >
-              Putri ke-dua dari Bapak Kosasih Koharmutahar (alm) & <br />
-              Ibu Dedeh
+              Putri dari Bapak Cici B. H Samsudin & <br />
+              Ibu Ira Lisnawati (Alis)
             </p>
             <a
               href="https://www.instagram.com/ninamrl29/"

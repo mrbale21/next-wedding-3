@@ -7,18 +7,18 @@ export default function DatePage() {
   const events = [
     {
       title: "Akad Nikah",
-      date: "Sabtu, 20 September 2025",
-      time: "08.00 WIB",
+      date: "Miunggu, 17 Mei 2026",
+      time: "09.00 WIB",
       location: "Kediaman Mempelai Wanita",
       icon: "/assets/images/ring.png",
-      bg: "/assets/images/image-1.webp",
+      bg: "/assets/images/image-4.webp",
       href: "https://maps.app.goo.gl/pKS5VhPyGiw2fVZG7?g_st=ipc",
     },
     {
       title: "Resepsi",
-      date: "Jum'at, 19 September 2025",
+      date: "Minggu, 17 Mei 2026",
       time: "10.00 WIB",
-      location: "Kediaman Mempelai Pria",
+      location: "Kediaman Mempelai Wanita",
       icon: "/assets/images/ring.png",
       bg: "/assets/images/image-5.webp",
       href: "https://maps.app.goo.gl/1hQd6FtzuZthdoky7?g_st=ipc",

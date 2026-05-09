@@ -18,7 +18,7 @@ const SpecialDay: React.FC<SpecialDayProps> = ({ targetDate }) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // pastikan hanya di client
+    setIsClient(true);
   }, []);
 
   useEffect(() => {

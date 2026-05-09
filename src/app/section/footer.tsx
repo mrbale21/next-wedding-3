@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
         {/* Konten teks */}
         <div className="relative z-10 text-center mb-10 px-4">
           <h3 data-aos="fade-up" className="font-Chalisa text-5xl font-medium">
-            Ebot & Nina
+            Komeng & Resti
           </h3>
           <h5
             data-aos="fade-up"
