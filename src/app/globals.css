@@ -95,8 +95,33 @@ body {
   -webkit-animation: spin-slow 7s linear infinite;
 }
 
-@supports (-webkit-overflow-scrolling: touch) {
-  .bg-fixed-ios {
-    background-attachment: scroll; /* fallback iOS */
+/*
+  Safari on iPhone/iPad renders `background-attachment: fixed` unreliably,
+  especially when combined with `background-size: cover`.
+  Keep the parallax feel on desktop, then fall back to a stable background
+  treatment on touch devices so the image does not look zoomed or blurry.
+*/
+.bg-fixed-safe {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .bg-fixed-safe {
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  .bg-fixed-safe {
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
   }
 }
