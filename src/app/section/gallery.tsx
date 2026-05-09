@@ -1,49 +1,66 @@
-import { useState } from "react";
+"use client";
+
+import { useEffect, useState } from "react";
 import {
   MdClose,
   MdKeyboardDoubleArrowLeft,
   MdKeyboardDoubleArrowRight,
 } from "react-icons/md";
 
+type GalleryItem = {
+  src: string;
+  alt: string;
+};
+
+const POPUP_PHOTOS: GalleryItem[] = [
+  { src: "/assets/images/image-5.webp", alt: "Gallery image 5" },
+  { src: "/assets/images/image-2.webp", alt: "Gallery image 2" },
+  { src: "/assets/images/image-3.webp", alt: "Gallery image 3" },
+  { src: "/assets/images/image-4.webp", alt: "Gallery image 4" },
+  { src: "/assets/images/image-8.webp", alt: "Gallery image 8" },
+  { src: "/assets/images/image-1.webp", alt: "Gallery image 1" },
+];
+
 function GalleryImage({
   src,
   alt,
   onClick,
+  clickable = false,
 }: {
   src: string;
   alt: string;
   onClick?: () => void;
+  clickable?: boolean;
 }) {
-  const isGalery = src.includes("galery-");
-
   return (
     <div
-      className="relative cursor-pointer group"
-      onClick={!isGalery ? onClick : undefined}
+      className={`relative group overflow-hidden ${clickable ? "cursor-pointer" : "cursor-default"}`}
+      onClick={clickable ? onClick : undefined}
     >
-      <img src={src} alt={alt} className="w-full h-full object-cover" />
+      <img
+        src={src}
+        alt={alt}
+        className={`h-full w-full object-cover transition duration-300 ${
+          clickable ? "group-hover:scale-[1.03]" : ""
+        }`}
+      />
 
-      {/* overlay untuk galery- */}
-      {isGalery && <div className="absolute inset-0 bg-black/60" />}
+      <div
+        className={`absolute inset-0 transition duration-300 ${
+          clickable ? "bg-black/10 group-hover:bg-black/25" : "bg-black/55"
+        }`}
+      />
 
-      {/* hover overlay untuk image- */}
-      {!isGalery && (
-        <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition duration-300" />
+      {clickable && (
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 p-3 text-right text-xs font-medium uppercase tracking-[0.2em] text-white/80 opacity-0 transition duration-300 group-hover:opacity-100">
+          View
+        </div>
       )}
     </div>
   );
 }
 
 export default function Gallery() {
-  // Kumpulan foto yg boleh masuk popup (image-...)
-  const imagePhotos = [
-    "/assets/images/image-1.webp",
-    "/assets/images/image-2.webp",
-    "/assets/images/image-3.webp",
-    "/assets/images/image-4.webp",
-    "/assets/images/image-5.webp",
-  ];
-
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
   const openPopup = (index: number) => {
@@ -57,16 +74,51 @@ export default function Gallery() {
   const prevImage = () => {
     if (currentIndex !== null) {
       setCurrentIndex(
-        (currentIndex - 1 + imagePhotos.length) % imagePhotos.length,
+        (currentIndex - 1 + POPUP_PHOTOS.length) % POPUP_PHOTOS.length,
       );
     }
   };
 
   const nextImage = () => {
     if (currentIndex !== null) {
-      setCurrentIndex((currentIndex + 1) % imagePhotos.length);
+      setCurrentIndex((currentIndex + 1) % POPUP_PHOTOS.length);
     }
   };
+
+  useEffect(() => {
+    if (currentIndex === null) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setCurrentIndex(null);
+      }
+
+      if (event.key === "ArrowLeft") {
+        setCurrentIndex(
+          (prevIndex) =>
+            prevIndex === null
+              ? prevIndex
+              : (prevIndex - 1 + POPUP_PHOTOS.length) % POPUP_PHOTOS.length,
+        );
+      }
+
+      if (event.key === "ArrowRight") {
+        setCurrentIndex((prevIndex) =>
+          prevIndex === null
+            ? prevIndex
+            : (prevIndex + 1) % POPUP_PHOTOS.length,
+        );
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentIndex]);
 
   return (
     <div className="bg-secondary">
@@ -80,8 +132,9 @@ export default function Gallery() {
 
       <div className="grid grid-cols-3 p-4 gap-1">
         <GalleryImage
-          src="/assets/images/image-5.webp"
-          alt="image"
+          src={POPUP_PHOTOS[0].src}
+          alt={POPUP_PHOTOS[0].alt}
+          clickable
           onClick={() => openPopup(0)}
         />
 
@@ -91,16 +144,18 @@ export default function Gallery() {
           className="h-full flex flex-col justify-between gap-1"
         >
           <GalleryImage
-            src="/assets/images/image-2.webp"
-            alt="image"
+            src={POPUP_PHOTOS[1].src}
+            alt={POPUP_PHOTOS[1].alt}
+            clickable
             onClick={() => openPopup(1)}
           />
           <GalleryImage src="/assets/images/galery-2.jpg" alt="image" />
         </div>
 
         <GalleryImage
-          src="/assets/images/image-3.webp"
-          alt="image"
+          src={POPUP_PHOTOS[2].src}
+          alt={POPUP_PHOTOS[2].alt}
+          clickable
           onClick={() => openPopup(2)}
         />
 
@@ -110,17 +165,19 @@ export default function Gallery() {
           className="flex flex-col justify-between gap-1"
         >
           <GalleryImage
-            src="/assets/images/image-8.webp"
-            alt="image"
-            onClick={() => openPopup(1)}
+            src={POPUP_PHOTOS[3].src}
+            alt={POPUP_PHOTOS[3].alt}
+            clickable
+            onClick={() => openPopup(3)}
           />
           <GalleryImage src="/assets/images/galery-4.jpg" alt="image" />
         </div>
 
         <GalleryImage
-          src="/assets/images/image-4.webp"
-          alt="image"
-          onClick={() => openPopup(3)}
+          src={POPUP_PHOTOS[4].src}
+          alt={POPUP_PHOTOS[4].alt}
+          clickable
+          onClick={() => openPopup(4)}
         />
 
         <div
@@ -146,47 +203,59 @@ export default function Gallery() {
             Komeng & Resti
           </p>
           <GalleryImage
-            src="/assets/images/image-1.webp"
-            alt="image"
-            onClick={() => openPopup(0)}
+            src={POPUP_PHOTOS[5].src}
+            alt={POPUP_PHOTOS[5].alt}
+            clickable
+            onClick={() => openPopup(5)}
           />
         </div>
 
         <div data-aos="fade-up" data-aos-delay={10} className="col-span-2">
           <GalleryImage
-            src="/assets/images/image-2.webp"
-            alt="image"
-            onClick={() => openPopup(4)}
+            src={POPUP_PHOTOS[1].src}
+            alt={POPUP_PHOTOS[1].alt}
+            clickable
+            onClick={() => openPopup(1)}
           />
         </div>
       </div>
 
       {/* Popup Modal */}
       {currentIndex !== null && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
+          onClick={closePopup}
+        >
           <button
             onClick={closePopup}
-            className="absolute top-12 right-4 text-white text-2xl  bg-white/20 rounded-full p-1 "
+            className="absolute right-4 top-12 rounded-full bg-white/20 p-1 text-2xl text-white"
           >
             <MdClose />
           </button>
 
           <button
-            onClick={prevImage}
-            className="absolute left-4 text-white text-3xl  bg-white/20 rounded-lg px-2 py-1 "
+            onClick={(event) => {
+              event.stopPropagation();
+              prevImage();
+            }}
+            className="absolute left-4 rounded-lg bg-white/20 px-2 py-1 text-3xl text-white"
           >
             <MdKeyboardDoubleArrowLeft />
           </button>
 
           <img
-            src={imagePhotos[currentIndex]}
-            alt="popup"
+            src={POPUP_PHOTOS[currentIndex].src}
+            alt={POPUP_PHOTOS[currentIndex].alt}
             className="max-h-[90%] max-w-[90%] object-contain"
+            onClick={(event) => event.stopPropagation()}
           />
 
           <button
-            onClick={nextImage}
-            className="absolute right-4 text-white text-3xl bg-white/20 rounded-lg px-2 py-1 "
+            onClick={(event) => {
+              event.stopPropagation();
+              nextImage();
+            }}
+            className="absolute right-4 rounded-lg bg-white/20 px-2 py-1 text-3xl text-white"
           >
             <MdKeyboardDoubleArrowRight />
           </button>
