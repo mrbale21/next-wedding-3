@@ -73,7 +73,7 @@ export default function FirstPage({ triggerConfetti }: FirstPageProps) {
           data-aos-delay={30}
           className="text-6xl mb-4 font-Chalisa md:text-8xl"
         >
-          Resti & Komeng
+          Komeng & Resti
         </h2>
         <SpecialDay targetDate="2026-05-17T00:00:00" />
       </div>

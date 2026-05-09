@@ -143,7 +143,7 @@ export default function Gallery() {
             data-aos-delay={10}
             className="text-center text-neutral font-Chalisa text-xl "
           >
-            Resti & Komeng
+            Komeng & Resti
           </p>
           <GalleryImage
             src="/assets/images/image-1.webp"

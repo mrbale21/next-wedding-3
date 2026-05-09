@@ -8,7 +8,7 @@ const Gift = () => {
   const [copiedDana, setCopiedDana] = useState(false);
   const [copiedMandiri, setCopiedMandiri] = useState(false);
 
-  const rekeningBca = "115101043209508";
+  const rekeningBca = "700001214811";
   const rekeningDana = "085816385559";
 
   const handleCopy = (rekening: string, type: "dana" | "bca") => {
@@ -45,14 +45,14 @@ const Gift = () => {
         </p>
 
         {/* --- Cards Container --- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1  gap-6">
           {/* Mandiri */}
           <div
             data-aos="zoom-in"
             className="bg-neutral border border-primary rounded-xl shadow shadow-primary/30 flex flex-col items-center p-6 relative"
           >
             <Image
-              src="/assets/images/bri.png"
+              src="/assets/images/bca.png"
               alt="Mandiri"
               width={70}
               height={40}
@@ -60,7 +60,7 @@ const Gift = () => {
             />
             <div className="w-2/3 h-[1px] bg-neutral-400 mb-3" />
             <p className="font-cal-sans text-sm text-secondary">
-              a/n Resti Sundari
+              a/n Komarudin
             </p>
             <p className="font-raleway text-base font-semibold text-white mt-4">
               {rekeningBca}
@@ -72,41 +72,6 @@ const Gift = () => {
             )}
             <button
               onClick={() => handleCopy(rekeningBca, "bca")}
-              className="flex items-center gap-2 bg-primary text-neutral px-3 py-1.5 rounded-md hover:bg-primary/90 mt-4 transition"
-            >
-              <span className="font-raleway font-bold text-xs">
-                Copy Rekening
-              </span>
-              <RiFileCopyLine size={16} />
-            </button>
-          </div>
-
-          {/* Dana */}
-          <div
-            data-aos="zoom-in"
-            className="bg-neutral border border-primary rounded-xl shadow shadow-primary/30 flex flex-col items-center p-6 relative"
-          >
-            <Image
-              src="/assets/images/dana.png"
-              alt="Dana"
-              width={70}
-              height={40}
-              className="mb-3"
-            />
-            <div className="w-2/3 h-[1px] bg-neutral-400 mb-3" />
-            <p className="font-cal-sans text-sm text-secondary">
-              a/n Resti Sundari
-            </p>
-            <p className="font-raleway text-base font-semibold text-white/80 mt-4">
-              {rekeningDana}
-            </p>
-            {copiedDana && (
-              <span className="text-white text-xs absolute bottom-2 ">
-                Tersalin!
-              </span>
-            )}
-            <button
-              onClick={() => handleCopy(rekeningDana, "dana")}
               className="flex items-center gap-2 bg-primary text-neutral px-3 py-1.5 rounded-md hover:bg-primary/90 mt-4 transition"
             >
               <span className="font-raleway font-bold text-xs">

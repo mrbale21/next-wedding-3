@@ -85,7 +85,7 @@ export default function IntroPage({ onOpen, guestName }: IntroPageProps) {
           Save The Date
         </motion.h1>
         <motion.h2 className="text-6xl mb-6 font-Chalisa md:text-5xl">
-          Resti & Komeng
+          Komeng & Resti
         </motion.h2>
         <motion.p className="font-Garamond text-smd mb-6 md:text-lg">
           Kepada Yth. Bapak/Ibu/Saudara/i
