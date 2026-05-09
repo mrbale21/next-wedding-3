@@ -30,6 +30,8 @@ interface Comment {
   attendance: "hadir" | "tidak-hadir";
 }
 
+const COMMENTS_COLLECTION = "comments-2";
+
 // Helper: format tanggal
 const formatDate = (date: Date) => {
   const now = new Date();
@@ -77,7 +79,10 @@ const CommentSection: React.FC = () => {
 
   // Firebase: load comments realtime
   useEffect(() => {
-    const q = query(collection(db, "comments"), orderBy("date", "desc"));
+    const q = query(
+      collection(db, COMMENTS_COLLECTION),
+      orderBy("date", "desc"),
+    );
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const data: Comment[] = snapshot.docs.map((doc) => {
         const d = doc.data();
@@ -114,7 +119,7 @@ const CommentSection: React.FC = () => {
     setIsSubmitting(true);
 
     // Simulate saving to Firebase
-    await addDoc(collection(db, "comments"), {
+    await addDoc(collection(db, COMMENTS_COLLECTION), {
       ...tempComment,
       attendance,
       date: Timestamp.fromDate(tempComment.date),

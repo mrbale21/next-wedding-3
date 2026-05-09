@@ -21,7 +21,7 @@ export default function DatePage() {
       location: "Kediaman Mempelai Wanita",
       icon: "/assets/images/ring.png",
       bg: "/assets/images/image-5.webp",
-      href: "https://maps.app.goo.gl/1hQd6FtzuZthdoky7?g_st=ipc",
+      href: "https://maps.app.goo.gl/T5Nd8fVFs7gnUs158?g_st=ac",
     },
   ];
 

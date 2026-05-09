@@ -56,7 +56,7 @@ const LoveStoryZigzag: React.FC = () => {
               <div className="relative w-1/2 sm:w-2/4 px-4 md:px-8">
                 {/* Card */}
                 <div
-                  className={`p-6 rounded-xl shadow-lg ${
+                  className={`p-5 rounded-xl shadow-lg ${
                     isLeft
                       ? "bg-neutral text-secondary"
                       : "bg-primary text-white"
