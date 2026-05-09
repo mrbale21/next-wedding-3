@@ -108,20 +108,12 @@ body {
   background-attachment: fixed;
 }
 
-@media (hover: none) and (pointer: coarse) {
+@supports (-webkit-touch-callout: none) {
   .bg-fixed-safe {
     background-attachment: scroll;
     background-position: center center;
     background-size: cover;
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
-  }
-}
-
-@supports (-webkit-touch-callout: none) {
-  .bg-fixed-safe {
-    background-attachment: scroll;
-    background-position: center center;
-    background-size: cover;
   }
 }
