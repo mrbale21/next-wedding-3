@@ -7,7 +7,7 @@ export default function DatePage() {
   const events = [
     {
       title: "Akad Nikah",
-      date: "Miunggu, 17 Mei 2026",
+      date: "Minggu, 17 Mei 2026",
       time: "09.00 WIB",
       location: "Kediaman Mempelai Wanita",
       icon: "/assets/images/ring.png",
